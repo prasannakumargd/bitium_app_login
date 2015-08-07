@@ -4,7 +4,9 @@
 <script type='text/javascript'>
 	$(window).bind("load", function(){
 	handler = Gmaps.build('Google');
-	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+	handler.buildMap({ provider: {
+		disableDefaultUI: true 
+	}, internal: {id: 'map'}}, function(){
 		markers = handler.addMarkers('<%=raw @hash.to_json %>');
 	  // markers = handler.addMarkers([
 	  //   {
@@ -21,10 +23,9 @@
 	  handler.bounds.extendWith(markers);
 	  handler.fitMapToBounds();
 	  handler.getMap().setZoom(2);
-	  handler.getMap()
 	 });
 });
-Gmaps.event.addDomListener(window, "load", initialize);
+//Gmaps.event.addDomListener(window, "load", initialize);
 </script>
 
 <div style='width: 1200px;'>
