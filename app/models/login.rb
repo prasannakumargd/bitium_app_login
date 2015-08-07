@@ -11,7 +11,7 @@ class Login < ActiveRecord::Base
     '71.103.235.148'
   ]
 
-  
+  before_create :setup
 
   def setup
     self.ip = IP_ARRAY.rand(10)
