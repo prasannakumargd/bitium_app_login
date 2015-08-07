@@ -1,8 +1,7 @@
 class LoginsController < ApplicationController
 	def create
-		create! do |success,failure|
-			success.html{redirect_to logins_path}
-		end
+		Login.create
+		redirect_to logins_path
 	end
 
 	def index
