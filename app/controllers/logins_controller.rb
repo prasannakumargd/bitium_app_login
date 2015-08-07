@@ -5,11 +5,11 @@ class LoginsController < ApplicationController
 	end
 
 	def markers
-		@users = Login.all
+		@users = Login.where.not(:ip => nil)
 		@hash = Gmaps4rails.build_markers(@users) do |user, marker|
 	  		marker.lat user.lat
 	  		marker.lng user.lon
-  		end
-  		redirect_to root_path
-	end
+  	end
+  	redirect_to root_path
+	 end
 end
