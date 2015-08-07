@@ -1,10 +1,10 @@
 class LoginsController < ApplicationController
 	def create
-		Login.create
-		redirect_to logins_path
+		@log = Login.create
+		redirect_to markers_logins_path
 	end
 
-	def index
+	def markers
 		@users = Login.all
 		@hash = Gmaps4rails.build_markers(@users) do |user, marker|
 	  		marker.lat user.lat
