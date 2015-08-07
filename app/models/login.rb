@@ -1,4 +1,8 @@
 class Login < ActiveRecord::Base
+  geocoded_by :ip,
+		:latitude => :lat, :longitude => :lon
+  after_validation :geocode
+
   IP_ARRAY = [
     '108.47.15.93',
     '68.5.159.51',
@@ -16,5 +20,4 @@ class Login < ActiveRecord::Base
   def setup
     self.ip = IP_ARRAY.rand(10)
   end
-
 end
