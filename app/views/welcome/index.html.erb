@@ -20,6 +20,8 @@
 	  // ]);
 	  handler.bounds.extendWith(markers);
 	  handler.fitMapToBounds();
+	  handler.getMap().setZoom(2);
+	  handler.getMap()
 	 });
 });
 Gmaps.event.addDomListener(window, "load", initialize);
